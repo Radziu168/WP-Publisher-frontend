@@ -1,5 +1,5 @@
 import { fetchGraphQL } from "@/lib/graphql";
-import { GET_POST_BY_SLUG, GET_POSTS } from "@/lib/queries";
+import { GET_POST_BY_SLUG } from "@/lib/queries";
 import { PostDetail } from "@/lib/types";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -28,12 +28,14 @@ export async function generateMetadata({ params }: Props) {
   };
 }
 
-export async function generateStaticParams() {
+export const dynamic = "force-dynamic";
+
+/*export async function generateStaticParams() {
   const data = await fetchGraphQL(GET_POSTS);
   return data.posts.nodes.map((post: { slug: string }) => ({
     slug: post.slug,
   }));
-}
+}*/
 
 export default async function PostPage({ params }: Props) {
   const { slug } = await params;

@@ -37,7 +37,8 @@ export async function generateMetadata({ params }: Props) {
   };
 }
 
-export async function generateStaticParams() {
+export const dynamic = "force-dynamic";
+/*export async function generateStaticParams() {
   const data = await fetchGraphQL(`
     {
       events(first: 100) {
@@ -51,7 +52,7 @@ export async function generateStaticParams() {
   return data.events.nodes.map((event: { slug: string }) => ({
     slug: event.slug,
   }));
-}
+}*/
 
 export default async function EventPage({ params }: Props) {
   const { slug } = await params;
