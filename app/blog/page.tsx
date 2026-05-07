@@ -3,6 +3,8 @@ import { GET_POSTS, GET_CATEGORIES } from "@/lib/queries";
 import { Post, Category } from "@/lib/types";
 import Link from "next/link";
 
+export const dynamic = "force-dynamic";
+
 export default async function BlogPage() {
   const [postsData, categoriesData] = await Promise.all([
     fetchGraphQL(GET_POSTS, {}, { revalidate: 300, tags: ["posts"] }),
