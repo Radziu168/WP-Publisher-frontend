@@ -13,10 +13,7 @@ export async function fetchGraphQL(
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ query, variables }),
-    next: {
-      revalidate,
-      tags,
-    },
+    next: { revalidate, tags },
   });
 
   if (!response.ok) {
@@ -29,5 +26,12 @@ export async function fetchGraphQL(
     throw new Error(`GraphQL error: ${JSON.stringify(data.errors)}`);
   }
 
-  return data.data;
+  // zamień localhost URL na publiczny URL
+  const wpUrl = process.env.NEXT_PUBLIC_WP_URL || "";
+  const jsonString = JSON.stringify(data.data).replace(
+    /http:\/\/localhost\/uniproject/g,
+    wpUrl,
+  );
+
+  return JSON.parse(jsonString);
 }
