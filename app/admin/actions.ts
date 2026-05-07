@@ -13,7 +13,7 @@ function getAuthHeader() {
   return `Basic ${credentials}`;
 }
 
-export async function approvePost(postId: number) {
+export async function approvePost(postId: number): Promise<void> {
   const response = await fetch(`${WP_URL}/wp-json/wp/v2/event/${postId}`, {
     method: "POST",
     headers: {
@@ -30,10 +30,9 @@ export async function approvePost(postId: number) {
   revalidatePath("/admin");
   revalidatePath("/events");
   revalidatePath("/blog");
-  return { success: true };
 }
 
-export async function rejectPost(postId: number) {
+export async function rejectPost(postId: number): Promise<void> {
   const response = await fetch(`${WP_URL}/wp-json/wp/v2/event/${postId}`, {
     method: "DELETE",
     headers: {
@@ -46,5 +45,4 @@ export async function rejectPost(postId: number) {
   }
 
   revalidatePath("/admin");
-  return { success: true };
 }
