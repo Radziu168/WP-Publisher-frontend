@@ -33,13 +33,13 @@ query GetPostsByCategory($slug: String!) {
   }
 }
 `;
-
-export async function generateStaticParams() {
+export const dynamic = "force-dynamic";
+/*export async function generateStaticParams() {
   const data = await fetchGraphQL(GET_CATEGORIES);
   return data.categories.nodes.map((cat: Category) => ({
     slug: cat.slug,
   }));
-}
+}*/
 
 export default async function CategoryPage({ params }: Props) {
   const { slug } = await params;
