@@ -1,4 +1,4 @@
-import { revalidateTag } from "next/cache";
+import { revalidatePath } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
 
 const REVALIDATE_SECRET = process.env.REVALIDATE_SECRET;
@@ -10,15 +10,15 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  const { tag } = await request.json();
+  const { path } = await request.json();
 
-  if (!tag) {
+  if (!path) {
     return NextResponse.json(
-      { error: "Brakuje parametru tag" },
+      { error: "Brakuje parametru path" },
       { status: 400 },
     );
   }
 
-  revalidateTag(tag);
-  return NextResponse.json({ revalidated: true, tag });
+  revalidatePath(path);
+  return NextResponse.json({ revalidated: true, path });
 }
