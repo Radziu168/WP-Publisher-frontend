@@ -1,6 +1,6 @@
 "use server";
 
-import { revalidatePath, revalidateTag } from "next/cache";
+import { revalidatePath } from "next/cache";
 
 const WP_URL = process.env.NEXT_PUBLIC_WP_URL;
 const WP_USERNAME = process.env.WP_USERNAME;
@@ -29,7 +29,7 @@ export async function approvePost(postId: number) {
 
   revalidatePath("/admin");
   revalidatePath("/events");
-  revalidateTag("events");
+  revalidatePath("/blog");
   return { success: true };
 }
 
