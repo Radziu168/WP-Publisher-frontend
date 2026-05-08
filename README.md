@@ -22,7 +22,7 @@ Headless CMS zbudowany na Next.js 15 i WordPress. Python pipeline automatycznie 
                             ↓
 ┌─────────────────────────────────────────────────────────┐
 │                   NEXT.JS FRONTEND                       │
-│                   (uni-frontend/)                        │
+│                   (WP-Publisher-frontend/)                        │
 │                                                         │
 │  /admin  → Server Actions → WordPress REST API          │
 │            (zatwierdź/odrzuć drafty)                    │
@@ -70,7 +70,7 @@ Headless CMS zbudowany na Next.js 15 i WordPress. Python pipeline automatycznie 
 ## Struktura projektu
 
 ```
-uni-frontend/                     # Next.js frontend
+WP-Publisher-frontend/                     # Next.js frontend
 ├── app/
 │   ├── admin/
 │   │   ├── actions.ts            # Server Actions: zatwierdź/odrzuć
@@ -307,8 +307,8 @@ Python Workshop,22 maja 2026,"Warsztaty z automatyzacji. Poziom średniozaawanso
 #### 3.1 Sklonuj repozytorium
 
 ```bash
-git clone https://github.com/TWOJ_USERNAME/uni-frontend.git
-cd uni-frontend
+git clone https://github.com/TWOJ_USERNAME/WP-Publisher-frontend.git
+cd WP-Publisher-frontend
 ```
 
 #### 3.2 Zainstaluj zależności
@@ -373,7 +373,7 @@ Otwórz [http://localhost:3000](http://localhost:3000).
 #### 4.1 Przygotuj repozytorium
 
 ```bash
-cd uni-frontend
+cd WP-Publisher-frontend
 git init
 git add .
 git commit -m "feat: initial commit"
@@ -382,7 +382,7 @@ git commit -m "feat: initial commit"
 Utwórz nowe repo na [github.com](https://github.com) i wypchnij kod:
 
 ```bash
-git remote add origin https://github.com/TWOJ_USERNAME/uni-frontend.git
+git remote add origin https://github.com/TWOJ_USERNAME/WP-Publisher-frontend.git
 git branch -M main
 git push -u origin main
 ```
@@ -410,7 +410,7 @@ Przenieś WordPress na hosting (Siteground, Hetzner, etc.). Zaktualizuj URL w zm
 
 #### 4.3 Import projektu w Vercel
 
-Wejdź na [vercel.com](https://vercel.com) → **Add New Project** → **Import** repo `uni-frontend` z GitHub.
+Wejdź na [vercel.com](https://vercel.com) → **Add New Project** → **Import** repo `WP-Publisher-frontend` z GitHub.
 
 Przed kliknięciem Deploy — kliknij **Environment Variables** i dodaj:
 
