@@ -10,10 +10,10 @@ Headless CMS zbudowany na Next.js 15 i WordPress. Python pipeline automatycznie 
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│                    PYTHON PIPELINE                       │
-│                  (ai-wp-publisher/)                      │
+│                    PYTHON PIPELINE                      |
+│                  (ai-wp-publisher/)                     |
 │                                                         │
-│  events_batch.csv → event_generator.py → OpenAI API    │
+│  events_batch.csv → event_generator.py → OpenAI API     │
 │                           ↓                             │
 │                     wp_client.py → WordPress REST API   │
 │                           ↓                             │
@@ -21,8 +21,8 @@ Headless CMS zbudowany na Next.js 15 i WordPress. Python pipeline automatycznie 
 └─────────────────────────────────────────────────────────┘
                             ↓
 ┌─────────────────────────────────────────────────────────┐
-│                   NEXT.JS FRONTEND                       │
-│                   (WP-Publisher-frontend/)                        │
+│                   NEXT.JS FRONTEND                      │
+│                   (WP-Publisher-frontend/)              │
 │                                                         │
 │  /admin  → Server Actions → WordPress REST API          │
 │            (zatwierdź/odrzuć drafty)                    │
