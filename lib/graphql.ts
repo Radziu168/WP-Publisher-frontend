@@ -26,10 +26,9 @@ export async function fetchGraphQL(
     throw new Error(`GraphQL error: ${JSON.stringify(data.errors)}`);
   }
 
-  // zamień localhost URL na publiczny URL
   const wpUrl = process.env.NEXT_PUBLIC_WP_URL || "";
   const jsonString = JSON.stringify(data.data).replace(
-    /http:\/\/localhost\/uniproject/g,
+    /http:\/\/localhost\/project/g,
     wpUrl,
   );
 
